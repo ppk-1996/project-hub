@@ -3,9 +3,7 @@ import Layout from "@/components/Layout";
 
 export default function Home({ feed }) {
   return (
-    <Layout>
       <Feed feed={feed} />
-    </Layout>
   );
 }
 import prisma from "@/lib/prisma";

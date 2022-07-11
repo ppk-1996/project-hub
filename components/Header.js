@@ -1,14 +1,22 @@
+import { useProfileContext } from "context/profileContext";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 function Header() {
-  const { data: session, status } = useSession();
-  if (status == "loading") {
-    return <div> Loading...</div>
-  }
-  return <>
-    <button className="btn-primary px-4 py-2">add project</button>
-  </>
+  const { data: session } = useSession();
+  const [profile,setProfile] = useProfileContext();
+  useEffect(()=>{
+    if(session){
+      const fetchProfile=async()=>{
+        //fetch profile from /api/profile
+        const data = await fetch("/api/profile").then(res=>res.json());
+        setProfile(data);
+      }
+      fetchProfile();
+    }
+  },[session])
+
   if (!session) {
     return <div>
       
@@ -19,14 +27,15 @@ function Header() {
       </div>
     </div>
   }
-  if (session) {
+  if (session && profile) {
     return (
       <div className="header-login">
         <div className="usrInfo">
-          <p className="usrname">{session?.user?.name}</p>
+          <p className="usrname">{profile.profileName}</p>
           <button id="signout" onClick={signOut}>
             Sign Out
           </button>
+      
         </div>
         <img className="usrImg" src={session?.user?.image} referrerPolicy="no-referrer" />
       </div>

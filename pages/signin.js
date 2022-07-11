@@ -1,34 +1,19 @@
-import { useRouter } from 'next/router'
-import { getProviders, useSession, signIn } from 'next-auth/react';
-import { useEffect } from 'react';
+import { getProviders, signIn, useSession } from "next-auth/react";
+import { useEffect } from "react";
+export default function SignIn({ providers }) {
 
-const SignIn = ({ providers }) => {
-    const { data: session, status } = useSession();
-    const router = useRouter();
-    useEffect(() => {
-        if (session) {
-            return () => {
-                router.push('/');
-            }
-        }
-    }, [session])
-    if (status == "loading") {
-        return <div> Loading...</div>
-    }
-    return (
-        <div>
-            {Object.values(providers).map((provider) => (
-                <div key={provider.name}>
-                    <button onClick={() => signIn(provider.id)}>
-                        Sign in with {provider.name}
-                    </button>
-                </div>
-            ))}
+  return (
+    <>
+      {Object.values(providers).map((provider) => (
+        <div key={provider.name}>
+          <button className="btn-primary" onClick={() => signIn(provider.id)}>
+            Sign in with {provider.name}
+          </button>
         </div>
-    );
-};
-export default SignIn;
-
+      ))}
+    </>
+  );
+}
 export async function getServerSideProps(context) {
-    return { props: { providers: await getProviders() } };
+  return { props: { providers: await getProviders() } };
 }
