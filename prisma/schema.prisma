@@ -17,16 +17,17 @@ model Tag {
 }
 
 model Project {
-  id        String   @id @default(cuid())
-  title     String
-  pitch     String
-  tags      Tag[]
-  content   String?
-  published Boolean  @default(false)
-  authorID  String
-  author    Profile  @relation(fields: [authorID], references: [id])
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  id         String   @id @default(cuid())
+  title      String
+  pitch      String
+  coverImage String?  @map(name: "cover_image")
+  tags       Tag[]
+  content    String?
+  published  Boolean  @default(false)
+  authorID   String
+  author     Profile  @relation(fields: [authorID], references: [id])
+  createdAt  DateTime @default(now()) @map(name: "created_at")
+  updatedAt  DateTime @updatedAt @map(name: "updated_at")
 }
 
 model Account {

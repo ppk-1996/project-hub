@@ -28,13 +28,11 @@ export default async function handler(req, res) {
                         select:{
                             email:true,
                             image:true,
-                            createdAt:true,
-                            updatedAt:true
                         }
                     }
                 }
             })
-            if (profile.length == 0 && user) {
+            if (!profile && user) {
                 const newProfile = await prisma.profile.create({
                     data: {
                         userId: user.id,

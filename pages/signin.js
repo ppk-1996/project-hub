@@ -1,12 +1,13 @@
 import { getProviders, signIn, useSession } from "next-auth/react";
-import { useEffect } from "react";
+
 export default function SignIn({ providers }) {
+const {data:session} = useSession()
 
   return (
     <>
       {Object.values(providers).map((provider) => (
         <div key={provider.name}>
-          <button className="btn-primary" onClick={() => signIn(provider.id)}>
+          <button className="btn" onClick={() => signIn(provider.id)}>
             Sign in with {provider.name}
           </button>
         </div>

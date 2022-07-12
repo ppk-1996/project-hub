@@ -1,13 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer components{
-.btn-primary{
-  background-color: #00979C;
-  border-color: #0070f3;
-  color: #fff;
-  font-size:0.813rem;
-  text-transform:uppercase;
-}
+  .btn{
+    @apply bg-black text-white hover:text-black hover:bg-white hover:border-red-500 hover:border;
+  }
+  .link{
+    @apply  text-black p-1 hover:text-red-500;
+  }
 }

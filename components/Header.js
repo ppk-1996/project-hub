@@ -1,45 +1,78 @@
 import { useProfileContext } from "context/profileContext";
 import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function Header() {
   const { data: session } = useSession();
-  const [profile,setProfile] = useProfileContext();
-  useEffect(()=>{
-    if(session){
-      const fetchProfile=async()=>{
+  const [profile, setProfile] = useProfileContext();
+
+  useEffect(() => {
+    if (session) {
+      const fetchProfile = async () => {
         //fetch profile from /api/profile
-        const data = await fetch("/api/profile").then(res=>res.json());
+        const data = await fetch("/api/profile").then((res) => res.json());
         setProfile(data);
-      }
+      };
       fetchProfile();
     }
-  },[session])
+  }, [session]);
 
-  if (!session) {
-    return <div>
-      
-      <div>
-        <Link href="/signin">
-          <a> Login </a>
+  return (
+    <div className="bg-primary flex justify-between items-center p-4">
+      <div className="w-52">
+        <Link href="/">
+          <a>
+            <img src="/vercel.svg" width="100%" />
+          </a>
         </Link>
       </div>
-    </div>
-  }
-  if (session && profile) {
-    return (
-      <div className="header-login">
-        <div className="usrInfo">
-          <p className="usrname">{profile.profileName}</p>
-          <button id="signout" onClick={signOut}>
+      {!session ? (
+        <Link href="/signin" className="block">
+          <a className="btn">Add Project</a>
+        </Link>
+      ) : (
+        <>
+        <Link href="/dashboard">
+          <a className="btn">My Dashboard</a>
+        </Link>
+        <Link href="/signin" className="block">
+         <a className="btn">Add Project</a>
+       </Link>
+        </>
+      )}
+      <div>
+        <label>
+          Search
+          <input
+            type="search"
+            className="m-2 border border-gray-500"
+            placeholder="search projects"
+          />
+        </label>
+      </div>
+      {!session ? (
+        <div>
+          <Link href="/signin">
+            <a className="link"> Login </a>
+          </Link>
+        </div>
+      ) : (
+        <div className="flex">
+          <img
+            src={session?.user?.image}
+            referrerPolicy="no-referrer"
+            width={35}
+          />
+          <button className="link" onClick={signOut}>
             Sign Out
           </button>
-      
         </div>
-        <img className="usrImg" src={session?.user?.image} referrerPolicy="no-referrer" />
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
+
+
 }
-export default Header
+export default Header;

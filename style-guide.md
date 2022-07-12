@@ -12,7 +12,7 @@ The designs were created to the following widths:
 
 ### Primary
 
-- green: #00979C
+- primary: #00979C
 - gray: #80898d
 - white: #FFFFFF
 - dark-gray: #171E21
