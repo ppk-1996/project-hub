@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="absolute bottom-0 w-full h-14 text-center">
+    <footer className=" bg-primary text-white py-2 text-center ">
       Copyright <span> &copy;</span> 2022
     </footer>
   );

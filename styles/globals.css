@@ -1,11 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer components{
-  .btn{
-    @apply bg-black text-white hover:text-black hover:bg-white hover:border-red-500 hover:border;
+@layer components {
+  .btn {
+    @apply w-fit h-11 border-2 border-transparent cursor-pointer relative overflow-hidden;
   }
-  .link{
-    @apply  text-black p-1 hover:text-red-500;
+
+  .btn-front {
+    @apply bg-black text-white py-1 px-2 w-full inline-block text-center z-20 hover:mt-1 active:mt-2;
+  }
+
+  .btn-back {
+    @apply w-full h-2 bg-white  z-0;
   }
 }

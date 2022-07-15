@@ -4,10 +4,12 @@ import prisma from "@/lib/prisma";
 export default function Home({ feed }) {
   return (
     <>
-    <h1>All Projects</h1>
-      {feed?.map((project) => (
-        <ProjectCard project={project} />
-      ))}
+      <h1>All Projects</h1>
+      <div className="grid grid-col-3">
+        {feed?.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
     </>
   );
 }
