@@ -1,7 +1,7 @@
 import { useProfileContext } from "context/profileContext";
 import { signOut, useSession } from "next-auth/react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { TbGridDots } from "react-icons/tb";
@@ -22,11 +22,11 @@ function Header() {
   }, [session]);
 
   return (
-    <div className="bg-primary p-4 flex justify-end gap-x-4">
+    <div className="bg-white p-4 flex justify-end gap-x-4">
       <div className="w-52 mr-auto">
         <Link href="/">
           <a>
-            <img src="/vercel.svg" width="100%" />
+            <Image src="/arduino.svg" width="500" height="100" />
           </a>
         </Link>
       </div>

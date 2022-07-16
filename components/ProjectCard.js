@@ -14,13 +14,12 @@ export default function ProjectCard({ project }) {
           </p>
         </div>
         <div className="p-4">
-          <a>
-            <div className="text-xl font-bold mb-3">{project.title}</div>
-          </a>
+          <div className="text-xl font-bold mb-3">{project.title}</div>
           <p>
             Project tutorial by{" "}
             <span className="font-bold">{project?.author?.profileName} </span>{" "}
           </p>
+          <div className="flex"></div>
         </div>
       </article>
     </Link>

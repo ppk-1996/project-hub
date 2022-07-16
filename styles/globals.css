@@ -7,10 +7,10 @@
   }
 
   .btn-front {
-    @apply bg-black text-white py-1 px-2 w-full inline-block text-center z-20 hover:mt-1 active:mt-2;
+    @apply bg-primary text-white py-1 px-2 w-full inline-block text-center z-20 hover:mt-1 active:mt-2;
   }
 
   .btn-back {
-    @apply w-full h-2 bg-white  z-0;
+    @apply w-full h-2 bg-primarydark z-0;
   }
 }
