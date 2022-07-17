@@ -1,9 +1,11 @@
-import { getProviders, signIn, useSession } from "next-auth/react";
+import { getProviders, signIn, useSession, useRouter } from "next-auth/react";
 import { useEffect } from "react";
 import Router from "next/router";
 import Image from "next/image";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import Footer from "../components/Footer";
 
 export default function SignIn({ providers }) {
   const { data: session } = useSession();
@@ -13,12 +15,17 @@ export default function SignIn({ providers }) {
       Router.push("/");
     }
   }, [session]);
-
   return (
-    <div className="bg-main grid grid-cols-[2fr_1fr]">
-      <div className="p-2 mt-12 justify-self-center">
+    <div className="bg-main min-h-screen grid grid-cols-1 md:grid-cols-[2fr_1fr] ">
+      <div className="pt-8 flex flex-col items-center relative ">
+        <div onClick={() => Router.back()}>
+          <AiOutlineArrowLeft
+            size={40}
+            className="cursor-pointer text-primary font-bold absolute top-30 left-10 "
+          />
+        </div>
         <svg
-          className="mb-8 translate-x-1/2"
+          className="mb-8"
           width="80"
           height="40"
           viewBox="0 0 80 40"
@@ -31,7 +38,7 @@ export default function SignIn({ providers }) {
           ></path>
         </svg>
         <div className="mb-6">SIGN IN TO PROJECT HUB</div>
-        <form className="p-2 border border-rose-400 -translate-x-1/4">
+        <form className="p-2 max-w-sm">
           <input
             className="block bg-white p-2 mb-4  md:w-80 "
             placeholder="Username or Email"
@@ -43,15 +50,15 @@ export default function SignIn({ providers }) {
           <div className="text-primary text-sm font-bold">
             Forgot your password?
           </div>
-          <div className="block w-fit bg-primary text-white tracking-wider px-4 py-2 mt-4 ml-auto rounded-full">
+          <div className="block bg-primarymute cursor-pointer w-fit bg-primary text-white tracking-wider px-4 py-2 mt-8 ml-auto rounded-full">
             SIGN IN
           </div>
         </form>
-        <div className="mt-6 text-sm">
+        <div className="mt-8 text-sm">
           Don't you have an account?{" "}
           <span className="text-primary font-bold">Create One</span>
         </div>
-        <div className="mt-8 flex items-center gap-x-8 -translate-x-1/4">
+        <div className="mt-8 flex items-center gap-x-8">
           <div className="bg-black w-32 h-[1px]"></div>
           <div>Or Sign In with</div>
           <div className="bg-black w-32 h-[1px]"></div>
@@ -69,8 +76,10 @@ export default function SignIn({ providers }) {
             </div>
           ))}
         </div>
+
+        <Footer />
       </div>
-      <div className="relative h-screen">
+      <div className="relative h-full hidden md:block">
         <div
           className="absolute inset-0 bg-cover bg-center z-0 h-full"
           style={{

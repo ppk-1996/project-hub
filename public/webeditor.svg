@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 36" id="app-web-editor" data-inject-url="https://cdn.arduino.cc/header-footer/prod/assets/headerApp-web-editor.svg">
+  <path d="M0.5 6.5H45.5V32.5C45.5 34.1569 44.1569 35.5 42.5 35.5H3.5C1.84315 35.5 0.5 34.1569 0.5 32.5V6.5Z" fill="#171E21"></path>
+  <path d="M0.5 3.5C0.5 1.84315 1.84315 0.5 3.5 0.5H42.5C44.1569 0.5 45.5 1.84315 45.5 3.5V6.5H0.5V3.5Z" fill="#DAE3E3"></path>
+  <rect x="5.5" y="10.5" width="6" height="2" rx="1" fill="#98FFC7"></rect>
+  <rect x="19.5" y="16.5" width="6" height="2" rx="1" fill="#FFE793"></rect>
+  <rect x="13.5" y="22.5" width="6" height="2" rx="1" fill="#95A5A6"></rect>
+  <rect x="13.5" y="10.5" width="4" height="2" rx="1" fill="#98FFC7"></rect>
+  <rect x="21.5" y="22.5" width="4" height="2" rx="1" fill="#95A5A6"></rect>
+  <rect x="13.5" y="16.5" width="4" height="2" rx="1" fill="#FFA572"></rect>
+  <rect x="5.5" y="28.5" width="4" height="2" rx="1" fill="#fff"></rect>
+  <rect x="27.5" y="16.5" width="4" height="2" rx="1" fill="#fff"></rect>
+</svg>
