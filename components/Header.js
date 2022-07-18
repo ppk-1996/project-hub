@@ -10,7 +10,7 @@ import { TbGridDots } from "react-icons/tb";
 function Header(props) {
   const { data: session } = useSession();
   const [profile, setProfile] = useProfileContext();
-  const [isClicked, setIsClicked] = useState(false);
+
   console.log(props);
 
   useEffect(() => {
@@ -78,9 +78,9 @@ function Header(props) {
           </div>
           <div
             style={{ display: `${props.isClicked ? "block" : ""}` }}
-            className={`hidden absolute right-0 top-0 pt-12 w-60`}
+            className="hidden absolute right-0 top-0 pt-12 w-60"
           >
-            <ul className="block bg-white p-1 ">
+            <ul className="block bg-white p-1 border border-rose-500">
               <li className="p-3 hover:bg-main">
                 <a className="flex items-center gap-4">
                   <Image src="/arduinocloud.svg" width={40} height={30} />
