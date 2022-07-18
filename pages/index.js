@@ -7,7 +7,7 @@ export default function Home({ feed }) {
       <h1 className="my-4 mb-12 text-3xl font-bold">All Projects</h1>
       <div className="grid grid-cols-1 justify-items-center gap-y-8  md:grid-cols-2 lg:grid-cols-3">
         {feed?.map((project) => (
-          <ProjectCard project={project} />
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     </>

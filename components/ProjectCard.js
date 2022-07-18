@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function ProjectCard({ project }) {
   return (
     <Link href={`/project/${project.id}`}>
-      <article key={project.id} className=" bg-white w-max cursor-pointer">
+      <article className=" bg-white w-max cursor-pointer">
         <div className="w-[300px] h-[300px] relative ">
           <div
             className="absolute inset-0 bg-cover bg-center z-0 h-full w-full"

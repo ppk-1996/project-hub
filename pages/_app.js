@@ -8,7 +8,6 @@ function MyApp({ Component, pageProps }) {
     <SessionProvider session={pageProps.session}>
       <ProfileProvider>
         <Layout>
-
         <Component {...pageProps} />
         </Layout>
       </ProfileProvider>

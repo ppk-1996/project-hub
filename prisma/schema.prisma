@@ -16,18 +16,28 @@ model Tag {
   projects Project[]
 }
 
+model Comment {
+  id        String  @id @default(cuid())
+  text      String
+  wroteBy   Profile @relation(fields: [profileId], references: [id])
+  profileId String
+  project   Project @relation(fields: [projectId], references: [id])
+  projectId String
+}
+
 model Project {
-  id         String   @id @default(cuid())
+  id         String    @id @default(cuid())
   title      String
   pitch      String
-  coverImage String?  @map(name: "cover_image")
+  coverImage String?   @map(name: "cover_image")
   tags       Tag[]
   content    String?
-  published  Boolean  @default(false)
+  published  Boolean   @default(false)
   authorID   String
-  author     Profile  @relation(fields: [authorID], references: [id])
-  createdAt  DateTime @default(now()) @map(name: "created_at")
-  updatedAt  DateTime @updatedAt @map(name: "updated_at")
+  author     Profile   @relation(fields: [authorID], references: [id])
+  createdAt  DateTime  @default(now()) @map(name: "created_at")
+  updatedAt  DateTime  @updatedAt @map(name: "updated_at")
+  comments   Comment[]
 }
 
 model Account {
@@ -83,6 +93,8 @@ model Profile {
   user        User      @relation(fields: [userId], references: [id])
   userId      String    @unique
   projects    Project[]
+  comments    Comment[]
+
 }
 
 model VerificationToken {
