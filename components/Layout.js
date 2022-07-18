@@ -6,7 +6,6 @@ import { useState } from "react";
 function Layout({ children }) {
   const router = useRouter();
   const showHeader = router.pathname != "/signin";
-  const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = (e) => {
     e.stopPropagation();
@@ -15,8 +14,8 @@ function Layout({ children }) {
 
   if (showHeader) {
     return (
-      <div onClick={() => setIsClicked(false)}>
-        <Header handleClick={handleClick} isClicked={isClicked} />
+      <div>
+        <Header />
         <div className="p-4 py-8 bg-main min-h-[calc(100vh-10rem)]">
           {children}
         </div>

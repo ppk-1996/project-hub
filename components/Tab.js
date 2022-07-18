@@ -1,10 +1,26 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { AiOutlineCheck } from "react-icons/ai";
 
 function Tab() {
   const [isShow, setIsShow] = useState(false);
   const [select, setSelect] = useState("item2");
+  const inputRef = useRef();
+  console.log(inputRef.current);
+
+  const handleClickOutside = (e) => {
+    if (inputRef.current && !inputRef.current.contains(e.target)) {
+      setIsShow(false);
+    }
+    return;
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+
+    return () =>
+      document.removeEventListener("click", handleClickOutside, true);
+  }, []);
 
   const handleShow = () => setIsShow((pre) => !pre);
   const handleChange = (e) => {
@@ -36,6 +52,7 @@ function Tab() {
   return (
     <div className="cursor-pointer relative z-10">
       <div
+        ref={inputRef}
         onClick={handleShow}
         style={{
           background: `${isShow ? "white" : ""}`,

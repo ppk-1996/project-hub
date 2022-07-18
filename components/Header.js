@@ -1,17 +1,25 @@
 import { useProfileContext } from "context/profileContext";
 import { signOut, useSession } from "next-auth/react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect } from "react";
+
 import { AiOutlineSearch } from "react-icons/ai";
 import { TbGridDots } from "react-icons/tb";
 
-function Header(props) {
+function Header() {
   const { data: session } = useSession();
   const [profile, setProfile] = useProfileContext();
+  const [isClicked, setIsClicked] = useState(false);
+  const inputRef = useRef();
 
-  console.log(props);
+  const handleClickOutside = (e) => {
+    if (inputRef.current && !inputRef.current.contains(e.target)) {
+      setIsClicked(false);
+    }
+    return;
+  };
+  const handleClick = () => setIsClicked((pre) => !pre);
 
   useEffect(() => {
     if (session) {
@@ -22,6 +30,9 @@ function Header(props) {
       };
       fetchProfile();
     }
+    document.addEventListener("click", handleClickOutside, true);
+    return () =>
+      document.removeEventListener("click", handleClickOutside, true);
   }, [session]);
 
   return (
@@ -69,18 +80,18 @@ function Header(props) {
         </div>
       </div>
       <div className="flex items-center justify-around gap-2">
-        <div
-          onClick={props.handleClick}
-          className=" cursor-pointer relative z-10"
-        >
-          <div className="rounded-full hover:bg-main hidden md:block text-primary p-2">
+        <div onClick={handleClick} className=" cursor-pointer relative z-10">
+          <div
+            ref={inputRef}
+            className="rounded-full hover:bg-main hidden md:block text-primary p-2"
+          >
             <TbGridDots size={20} />
           </div>
           <div
-            style={{ display: `${props.isClicked ? "block" : ""}` }}
+            style={{ display: `${isClicked ? "block" : ""}` }}
             className="hidden absolute right-0 top-0 pt-12 w-60"
           >
-            <ul className="block bg-white p-1 border border-rose-500">
+            <ul className="block bg-white p-1 ">
               <li className="p-3 hover:bg-main">
                 <a className="flex items-center gap-4">
                   <Image src="/arduinocloud.svg" width={40} height={30} />
