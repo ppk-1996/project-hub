@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="app-device-manager" viewBox="0 0 48 36" data-inject-url="https://cdn.arduino.cc/header-footer/prod/assets/headerApp-device-manager.svg">
+  <rect x="2.5" y=".5" width="45" height="35" rx="3" fill="#0CA1A6"></rect>
+  <circle cx="5.5" cy="3.5" r="2" fill="#fff"></circle>
+  <circle cx="44.5" cy="3.5" r="2" fill="#fff"></circle>
+  <circle cx="5.5" cy="32.5" r="2" fill="#fff"></circle>
+  <circle cx="44.5" cy="32.5" r="2" fill="#fff"></circle>
+  <rect x=".5" y="12.5" width="7" height="11" rx="1" fill="#DAE3E3"></rect>
+  <rect x="30.5" y="11.5" width="13" height="13" rx="1" fill="#DAE3E3"></rect>
+  <rect x="16.5" y="1.5" width="23" height="4" rx="1" fill="#4E5B61"></rect>
+  <rect x="16.5" y="30.5" width="23" height="4" rx="1" fill="#4E5B61"></rect>
+</svg>

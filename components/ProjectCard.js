@@ -3,8 +3,11 @@ import Link from "next/link";
 export default function ProjectCard({ project }) {
   return (
     <Link href={`/project/${project.id}`}>
-      <article className=" bg-white w-max cursor-pointer">
-        <div className="w-[300px] h-[300px] relative ">
+      <article
+        key={project.id}
+        className="z-0 bg-white w-full cursor-pointer border border-rose-500 overflow-hidden"
+      >
+        <div className="w-full h-64 relative ">
           <div
             className="absolute inset-0 bg-cover bg-center z-0 h-full w-full"
             style={{ backgroundImage: `url(${project?.coverImage})` }}

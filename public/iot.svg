@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="app-iot-cloud" viewBox="0 0 46 36" data-inject-url="https://cdn.arduino.cc/header-footer/prod/assets/headerApp-iot-cloud.svg">
+  <rect x=".5" y=".5" width="45" height="35" rx="3" fill="#DAE3E3"></rect>
+  <rect x="3.5" y="3.5" width="18" height="29" rx="1" fill="#fff"></rect>
+  <rect x="24.5" y="3.5" width="18" height="13" rx="1" fill="#fff"></rect>
+  <rect x="24.5" y="19.5" width="18" height="13" rx="1" fill="#fff"></rect>
+  <rect x="27.5" y="6.5" width="12" height="7" rx="3.5" fill="#95A5A6"></rect>
+  <rect x="27.5" y="22.5" width="12" height="7" rx="3.5" fill="#0CA1A6"></rect>
+  <circle cx="31" cy="10" r="2.5" fill="#fff"></circle>
+  <circle cx="36" cy="26" r="2.5" fill="#fff"></circle>
+  <path stroke="#95A5A6" stroke-width="3" stroke-linecap="round" d="M13 8v20"></path>
+  <path stroke="#0CA1A6" stroke-width="3" stroke-linecap="round" d="M13 17v11"></path>
+  <circle cx="13" cy="18" r="3" fill="#fff" stroke="#95A5A6"></circle>
+</svg>

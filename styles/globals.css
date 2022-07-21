@@ -3,11 +3,11 @@
 @tailwind utilities;
 @layer components {
   .btn {
-    @apply w-fit h-11 border-2 border-transparent cursor-pointer relative overflow-hidden;
+    @apply w-fit h-11   border-2 border-transparent cursor-pointer relative overflow-hidden;
   }
 
   .btn-front {
-    @apply bg-primary text-white py-1 px-2 w-full inline-block text-center z-20 hover:mt-1 active:mt-2;
+    @apply bg-primary text-white py-1 px-4 w-full inline-block text-center z-20 hover:mt-1 active:mt-2;
   }
 
   .btn-back {
