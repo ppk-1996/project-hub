@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-export default function Input({label,name,type="text"}) {
+export default function Input({ label, name, type = "text" }) {
   const [value, setValue] = useState("");
   const [isFocus, setIsFocus] = useState(false);
   return (
     <div className="relative flex flex-col h-14 my-4 ">
       <input
-        className="h-16 rounded-[6px] pt-6 px-4 pb-1 outline-none shadow-none 
+        className="h-16 rounded-[6px] pt-6 px-4 pb-1 outline-none shadow-none lg:w-80
                   transition-shadow ease-out duration-200 
                   focus:shadow-[0_0_0_2px_#00979C]"
         type={type}
@@ -20,7 +20,7 @@ export default function Input({label,name,type="text"}) {
         <label
           className="absolute pointer-events-none 
                   origin-top-left 
-                   transition-transform ease-out duration-200 text-[#6f81a5] left-4
+                   transition-transform ease-out duration-200 text-[#6f81a5] left-4 
                    translate-y-2 scale-75
                    "
           htmlFor={name}

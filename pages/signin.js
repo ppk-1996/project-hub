@@ -4,7 +4,7 @@ import Router from "next/router";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import Footer from "../components/Footer";
+import Input from "@/components/Input";
 
 export default function SignIn({ providers }) {
   const { data: session } = useSession();
@@ -15,53 +15,65 @@ export default function SignIn({ providers }) {
     }
   }, [session]);
   return (
-    <div className="bg-main min-h-screen grid grid-cols-1 md:grid-cols-[2fr_1fr] ">
-      <div className="pt-8 flex flex-col items-center relative ">
-        <div onClick={() => Router.back()}>
-          <AiOutlineArrowLeft
-            size={40}
-            className="cursor-pointer text-primary font-bold absolute top-30 left-10 "
-          />
-        </div>
-        <img src="/arduino_icon.svg" className="mb-8" />
-        <div className="mb-6">SIGN IN TO PROJECT HUB</div>
-        <form className="p-2 max-w-sm">
-          <input
-            className="block bg-white p-2 mb-4  md:w-80 "
-            placeholder="Username or Email"
-          />
-          <input
-            className="block bg-white p-2 mb-4 md:w-80"
-            placeholder="Password"
-          />
-          <div className="text-primary text-sm font-bold">
-            Forgot your password?
+    <div className="bg-main min-h-screen grid grid-cols-1 lg:grid-cols-[2fr_1fr] ">
+      <div className="relative h-full">
+        <div className="pt-8 p-3 h-[calc(100%-40px)] flex flex-col  items-center">
+          <div onClick={() => Router.back()}>
+            <AiOutlineArrowLeft
+              size={40}
+              className="cursor-pointer text-primary font-bold absolute top-30 left-10 "
+            />
           </div>
-          <div className="block bg-primarymute cursor-pointer w-fit bg-primary text-white tracking-wider px-4 py-2 mt-8 ml-auto rounded-full">
-            SIGN IN
-          </div>
-        </form>
-        <div className="mt-8 text-sm">
-          Don't you have an account?{" "}
-          <span className="text-primary font-bold">Create One</span>
-        </div>
-        <div className="mt-8 flex items-center gap-x-8">
-          <div className="bg-black w-32 h-[1px]"></div>
-          <div>Or Sign In with</div>
-          <div className="bg-black w-32 h-[1px]"></div>
-        </div>
-        <div className="flex mt-8 gap-x-6">
-          {Object.values(providers).map((provider) => (
-            <div key={provider.name}>
-              <button
-                className="bg-white p-2 px-6 rounded-full flex items-center gap-x-4 focus:ring"
-                onClick={() => signIn(provider.id)}
-              >
-                {provider.name === "Google" ? <FcGoogle /> : <FaGithub />}
-                {provider.name}
-              </button>
+          <img src="/arduino_icon.svg" className="mb-8" />
+          <div className="mb-6 text-3xl">SIGN IN TO PROJECT HUB</div>
+          <div className=" max-w-sm">
+            <Input label="Username or Email" />
+            <Input label="Password" />
+            <div className="text-primary text-sm font-bold">
+              Forgot your password?
             </div>
-          ))}
+            <div className="block bg-primarymute cursor-pointer w-fit bg-primary text-white tracking-wider px-4 py-2 mt-6 ml-auto rounded-full">
+              SIGN IN
+            </div>
+          </div>
+          {/* <form className="p-2 max-w-sm">
+            <input
+              className="block bg-white p-2 mb-4  md:w-80 "
+              placeholder="Username or Email"
+            />
+            <input
+              className="block bg-white p-2 mb-4 md:w-80"
+              placeholder="Password"
+            />
+            <div className="text-primary text-sm font-bold">
+              Forgot your password?
+            </div>
+            <div className="block bg-primarymute cursor-pointer w-fit bg-primary text-white tracking-wider px-4 py-2 mt-8 ml-auto rounded-full">
+              SIGN IN
+            </div>
+          </form> */}
+          <div className="mt-8 text-sm">
+            Don't you have an account?{" "}
+            <span className="text-primary font-bold">Create One</span>
+          </div>
+          <div className="mt-8 flex items-center gap-x-8">
+            <div className="bg-black w-32 h-[1px]"></div>
+            <div>Or Sign In with</div>
+            <div className="bg-black w-32 h-[1px]"></div>
+          </div>
+          <div className="flex mt-8 gap-x-6">
+            {Object.values(providers).map((provider) => (
+              <div key={provider.name}>
+                <button
+                  className="bg-white p-2 px-6 rounded-full flex items-center gap-x-4 focus:ring"
+                  onClick={() => signIn(provider.id)}
+                >
+                  {provider.name === "Google" ? <FcGoogle /> : <FaGithub />}
+                  {provider.name}
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="absolute bottom-0 w-full">
           <div className="w-full h-1 mt-12 bg-[#CFD4D4]"></div>
@@ -79,7 +91,7 @@ export default function SignIn({ providers }) {
           </footer>
         </div>
       </div>
-      <div className="relative h-full hidden md:block">
+      <div className="relative h-full hidden lg:block">
         <div
           className="absolute inset-0 bg-cover bg-center z-0 h-full"
           style={{
