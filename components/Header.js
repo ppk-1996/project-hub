@@ -79,7 +79,7 @@ function Header() {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-around gap-2">
+      <div className="flex items-center ml-12 justify-around gap-2">
         <div onClick={handleClick} className=" cursor-pointer relative z-10">
           <div
             ref={inputRef}

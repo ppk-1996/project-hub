@@ -6,7 +6,7 @@ function Tab() {
   const [isShow, setIsShow] = useState(false);
   const [select, setSelect] = useState("item2");
   const inputRef = useRef();
-  console.log(inputRef.current);
+  // console.log(inputRef.current);
 
   const handleClickOutside = (e) => {
     if (inputRef.current && !inputRef.current.contains(e.target)) {
@@ -50,7 +50,7 @@ function Tab() {
   ];
 
   return (
-    <div className="cursor-pointer relative z-10">
+    <div className="cursor-pointer relative">
       <div
         ref={inputRef}
         onClick={handleShow}
@@ -59,22 +59,22 @@ function Tab() {
           border: `${isShow ? "2px solid #d4d9d9" : ""}`,
           borderBottom: `${isShow ? "0px solid #eef2f2" : ""}`,
         }}
-        className="bg-white max-w-fit p-1 px-3 flex items-center gap-x-2 hover:bg-maindark h-8 "
+        className="bg-white w-full md:w-32 p-1 px-3 flex items-center justify-between gap-x-2 hover:bg-maindark h-8 "
       >
-        <span>{shorten(select) || "Heading"}</span>
-        {isShow ? <FiChevronUp /> : <FiChevronDown />}
+        <div>{shorten(select) || "Heading"}</div>
+        <div>{isShow ? <FiChevronUp /> : <FiChevronDown />}</div>
       </div>
 
       <div
         style={{ display: `${isShow ? "block" : ""}` }}
-        className="hidden absolute border-2 border-inherit bg-mainlight  pt-1 text-sm max-h-[300px] overflow-scroll"
+        className="hidden absolute border-2 border-inherit bg-mainlight pt-1 text-sm max-h-[500px] overflow-scroll z-10"
       >
         {items.map((el, idx) => {
           return (
             <div
               style={{ background: `${select === el ? "#d4d9d9" : ""}` }}
               onClick={handleChange}
-              className="p-1 w-64 hover:bg-maindark"
+              className="p-3 w-64 hover:bg-maindark text-lg"
               key={idx}
             >
               {el}{" "}

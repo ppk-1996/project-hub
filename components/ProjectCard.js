@@ -5,7 +5,7 @@ export default function ProjectCard({ project }) {
     <Link href={`/project/${project.id}`}>
       <article
         key={project.id}
-        className="z-0 bg-white w-full cursor-pointer border border-rose-500 overflow-hidden"
+        className="z-0 bg-white w-full cursor-pointer overflow-hidden"
       >
         <div className="w-full h-64 relative ">
           <div
@@ -19,8 +19,8 @@ export default function ProjectCard({ project }) {
         <div className="p-4">
           <div className="text-xl font-bold mb-3">{project.title}</div>
           <p>
-            Project tutorial by{" "}
-            <span className="font-bold">{project?.author?.profileName} </span>{" "}
+            Project tutorial by
+            <span className="font-bold">{project?.author?.profileName} </span>
           </p>
           <div className="flex"></div>
         </div>
