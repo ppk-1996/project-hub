@@ -61,7 +61,7 @@ export default function SignIn({ providers }) {
             <div>Or Sign In with</div>
             <div className="bg-black w-32 h-[1px]"></div>
           </div>
-          <div className="flex mt-8 gap-x-6">
+          <div className="flex mt-4 gap-x-6">
             {Object.values(providers).map((provider) => (
               <div key={provider.name}>
                 <button
