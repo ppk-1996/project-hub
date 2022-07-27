@@ -13,4 +13,8 @@
   .btn-back {
     @apply w-full h-2 bg-primarydark z-0;
   }
+
+  .tagging {
+    @apply p-2 font-bold leading-none text-sm border border-white inline-block;
+  }
 }
