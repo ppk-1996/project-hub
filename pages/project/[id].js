@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import prisma from "@/lib/prisma";
 import { useRouter } from "next/router";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import AboutProject from "@/components/AboutProject";
 
 export default function Project({ project }) {
   console.log(project);
   const router = useRouter();
   const { id } = router.query;
-
-  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -54,19 +52,7 @@ export default function Project({ project }) {
             </div>
           </div>
         </div>
-        <div className="min-h-[5rem]   my-8 bg-white p-4">
-          <div
-            onClick={() => setIsOpen((pre) => !pre)}
-            className="flex justify-between items-center "
-          >
-            <div className="text-2xl font-semibold">About This Project</div>
-            {isOpen ? <FiChevronUp /> : <FiChevronDown />}
-          </div>
-
-          <p className="mt-4 overflow-hidden ease-in-out duration-300">
-            {isOpen ? `Project Content Markdown: ${project?.content}` : ""}
-          </p>
-        </div>
+        <AboutProject content={project ? project.content : ""} />
       </div>
     </>
   );
