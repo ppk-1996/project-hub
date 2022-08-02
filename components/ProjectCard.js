@@ -12,7 +12,7 @@ export default function ProjectCard({ project }) {
             className="absolute inset-0 bg-cover bg-center z-0 h-full w-full"
             style={{ backgroundImage: `url(${project?.coverImage})` }}
           ></div>
-          <p className="text-white absolute inset-0 z-10 bg-primaryhalf flex justify-center items-center opacity-0 hover:opacity-100">
+          <p className="text-white absolute inset-0 z-10 p-3 py-5 bg-primaryhalf flex justify-center items-start opacity-0 hover:opacity-100">
             {project.pitch}
           </p>
         </div>
