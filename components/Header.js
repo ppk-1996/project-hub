@@ -3,6 +3,7 @@ import { signOut, useSession } from "next-auth/react";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Button from "@/components/Button";
 
 import { AiOutlineSearch } from "react-icons/ai";
 import { TbGridDots } from "react-icons/tb";
@@ -40,31 +41,37 @@ function Header() {
       <div className="w-52 mr-auto">
         <Link href="/">
           <a>
-            <Image src="/arduino.svg" width="500" height="100" />
+            <Image src="/_arduino.svg" width="500" height="100" />
           </a>
         </Link>
       </div>
       <div className="hidden gap-x-1.5 md:flex">
         {!session ? (
           <Link href="/signin" className="block">
-            <div className="btn">
-              <a className="btn-front">Add Project</a>
-              <div className="btn-back"></div>
-            </div>
+            <Button
+              label="Add Project"
+              back="#005C5F"
+              front="rgb(0,151,156)"
+              text="white"
+            />
           </Link>
         ) : (
           <>
             <Link href="/dashboard">
-              <div className="btn">
-                <a className="btn-front">My Dashboard</a>
-                <div className="btn-back"></div>
-              </div>
+              <Button
+                label="My Dashboard"
+                back="#005C5F"
+                front="rgb(0,151,156)"
+                text="white"
+              />
             </Link>
             <Link href="/signin" className="block">
-              <div className="btn">
-                <a className="btn-front">Add Project</a>
-                <div className="btn-back"></div>
-              </div>
+              <Button
+                label="Add Project"
+                back="#005C5F"
+                front="rgb(0,151,156)"
+                text="white"
+              />
             </Link>
           </>
         )}

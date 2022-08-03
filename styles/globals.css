@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 @layer components {
-  .btn {
-    @apply w-fit h-11   border-2 border-transparent cursor-pointer relative overflow-hidden;
-  }
-
-  .btn-front {
-    @apply bg-primary text-white py-1 px-4 w-full inline-block text-center z-20 hover:mt-1 active:mt-2;
-  }
-
-  .btn-back {
-    @apply w-full h-2 bg-primarydark z-0;
-  }
-
   .tagging {
     @apply p-2 font-bold leading-none text-sm border border-white inline-block;
   }
