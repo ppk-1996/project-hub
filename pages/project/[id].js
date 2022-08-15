@@ -17,9 +17,13 @@ export default function Project({ project }) {
 
   return (
     <div className="mt-6">
-      <div className="max-w-[1024px] px-2 sm:px-8 lg:px-0 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-x-12 border border-rose-400 ">
-        <div className="lg:col-span-2">
-          <img src={project?.coverImage} />
+      <div className="max-w-[1024px] px-2 sm:px-8 lg:px-0 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-x-12 ">
+        <div className="lg:col-span-2 border border-rose-400 ">
+          <img
+            className="w-full max-h-[580px] object-cover"
+            src={project?.coverImage}
+          />
+
           <div className="p-6 bg-[#4e5b61] text-white">
             <div className="text-3xl mb-8 font-bold">{project?.title}</div>
             <div className="mb-8">{project?.pitch}</div>
@@ -60,7 +64,9 @@ export default function Project({ project }) {
                   <Stats num={4} label="followers" />
                 </div>
               </div>
-              <Button label="Follow" back="#BDC7C7" front="#DAE3E3" />
+              <Button back="#BDC7C7" front="#DAE3E3">
+                Follow
+              </Button>
             </div>
           </div>
           <div className="mt-6">
@@ -71,25 +77,20 @@ export default function Project({ project }) {
             <div>July 8, 2022</div>
           </div>
           <div className="my-6 flex flex-col gap-2">
-            <div className="relative group text-white">
-              <AiOutlineLike className="absolute z-10 top-[25%] left-[23%] md:left-[41%] group-hover:top-[calc(25%+3px)]" />
-              <Button
-                label="Respect Project"
-                back="#005C5F"
-                front="rgb(0,151,156)"
-                text="white"
-                w="100%"
-              />
-            </div>
-            <div className="relative group ">
-              <FiEdit className="absolute z-10 top-[25%] left-[23%] md:left-[40%] group-hover:top-[calc(25%+3px)]" />
-              <Button
-                label="Write a comment"
-                back="#BDC7C7"
-                front="#DAE3E3"
-                w="100%"
-              />
-            </div>
+            <Button back="#005C5F" front="rgb(0,151,156)" text="white" w="100%">
+              <div className="flex justify-center items-center gap-2">
+                <AiOutlineLike />
+                <span>Respect Project</span>
+              </div>
+            </Button>
+
+            <Button back="#BDC7C7" front="#DAE3E3" w="100%">
+              <div className="flex justify-center items-center gap-2">
+                <FiEdit />
+                <span>Write a comment</span>
+              </div>
+            </Button>
+
             <div className="mt-2  cursor-pointer flex items-center justify-center gap-2 font-semibold text-primary">
               <BsFillShareFill />
               <span className="hover:text-black">Share </span>

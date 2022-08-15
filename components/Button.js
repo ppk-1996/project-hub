@@ -1,4 +1,4 @@
-function Button({ label, back, front, text, w }) {
+function Button({ children, back, front, text, w }) {
   return (
     <div
       style={{ width: w ? w : "fit-content" }}
@@ -11,7 +11,7 @@ function Button({ label, back, front, text, w }) {
         }}
         className="font-semibold uppercase py-2 text-sm px-6 w-full inline-block text-center z-20 hover:mt-[3px] active:mt-[7px]"
       >
-        {label}
+        {children}
       </a>
       <div
         style={{ background: back ? back : "#005C5F" }}

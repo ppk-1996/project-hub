@@ -48,30 +48,21 @@ function Header() {
       <div className="hidden gap-x-1.5 md:flex">
         {!session ? (
           <Link href="/signin" className="block">
-            <Button
-              label="Add Project"
-              back="#005C5F"
-              front="rgb(0,151,156)"
-              text="white"
-            />
+            <Button back="#005C5F" front="rgb(0,151,156)" text="white">
+              Add Project
+            </Button>
           </Link>
         ) : (
           <>
             <Link href="/dashboard">
-              <Button
-                label="My Dashboard"
-                back="#005C5F"
-                front="rgb(0,151,156)"
-                text="white"
-              />
+              <Button back="#005C5F" front="rgb(0,151,156)" text="white">
+                My Dashboard
+              </Button>
             </Link>
             <Link href="/signin" className="block">
-              <Button
-                label="Add Project"
-                back="#005C5F"
-                front="rgb(0,151,156)"
-                text="white"
-              />
+              <Button back="#005C5F" front="rgb(0,151,156)" text="white">
+                Add Project
+              </Button>
             </Link>
           </>
         )}
