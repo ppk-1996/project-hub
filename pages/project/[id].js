@@ -117,6 +117,15 @@ export default function Project({ project }) {
             </div>
             <div className="mt-2 text-xs">and 13 others</div>
           </div>
+          <div className="bg-[#f39c12] mt-5 py-5">
+            <div className="text-center text-xl uppercase font-semibold text-white">
+              See Similar Projects
+            </div>
+            <div className="text-center text-xl uppercase font-semibold text-white">
+              You might like
+            </div>
+            <img src="/icon-similar-projects.svg" alt="similar projects" />
+          </div>
         </div>
       </div>
     </div>
